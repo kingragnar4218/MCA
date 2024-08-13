@@ -23,6 +23,23 @@ public class first{
 
     int s=i+j;
     System.out.print(s);
+
+    /* 
+    int i=Integer.parseInt(a[0]); 
+    int j=Integer.parseInt(a[1]); 
+
+    int s1=i+j;
+    int s2=i-j;
+    int s3=i*j;
+    int s4=i/j;
+
+    System.out.println(s1);
+    System.out.println(s2);
+    System.out.println(s3);
+    System.out.println(s4);
+
+    */
+   
   }
 }
 
