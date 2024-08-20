@@ -89,3 +89,25 @@ public class Sumscanner {
     System.out.println("sum is: " + s1);
   }
 }
+------------------------------------------------------------------------------------------
+ //date 20-8-2024
+//pre leb a pro 5
+
+ import java.util.Scanner;  
+
+public class feet {
+
+  public static void main(String[] args) {
+
+    Scanner sc= new Scanner(System.in); 
+    
+    double m=sc.nextDouble();
+    double f=m*3.28084;
+    System.out.println("enter number"+f);
+
+  }
+}
+
+
+ 
+ 
