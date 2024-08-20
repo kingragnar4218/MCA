@@ -43,3 +43,49 @@ public class first{
   }
 }
 
+
+------------------------------------------------------------------------------------------
+ //date 20-8-2024
+ // leb A part program 3 no 2 
+ import java.util.Scanner;  
+
+public class user {
+
+  public static void main(String[] args) {
+
+    Scanner harsh = new Scanner(System.in);  
+
+      System.out.println("entr number a");
+      System.out.println("entr number b");
+
+      String name = harsh.nextLine(); 
+
+    System.out.println("name is: " + name);
+  }
+}
+------------------------------------------------------------------------------------------
+ //date 20-8-2024
+// leb A part program 4
+
+ import java.util.Scanner;  
+
+public class Sumscanner {
+
+  public static void main(String[] args) {
+
+    Scanner sc= new Scanner(System.in); 
+    
+
+      System.out.println("Enter a ");
+      int a=sc.nextInt();
+
+      System.out.println("Enter b");
+      int b=sc.nextInt();
+
+      int  s1=a+b;
+
+      //String name = harsh.nextLine(); 
+
+    System.out.println("sum is: " + s1);
+  }
+}
