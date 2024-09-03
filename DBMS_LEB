@@ -1,0 +1,23 @@
+PART 2 SECTION C 
+____________________________________________________________________________________________________________________________________________
+
+CREATE TABLE ACCOUNT(
+	ACTNO INT ,
+	CNAME VARCHAR(100),
+	BNAME VARCHAR(100),
+	AMOUNT DECIMAL(8,2),
+	ADATE DATE
+)
+
+SELECT * FROM [dbo].[ACCOUNT]
+
+
+INSERT INTO ACCOUNT VALUES  (101 , 'ANIL' , 'VRCE' , 1000.00 ,  '1-MAR-1995'),
+							(102 , 'SUNIL','AJIN',5000.00 ,  '4-JAN-1996'),
+							(103 , 'MEHUL' , 'KAROLBAGH' , 3500.00 ,  '17-NOV-1995'),
+							(104 , 'MADHURI' ,'CHANDI' , 1200.00 ,  '17-DEC-1995'),
+							(105 , 'PRMOD' , 'M.G.ROAD' , 3000.00 ,  '27-MAR-1996'),
+							(106 , 'SANDIP ' , 'ANDHERI' , 2000.00 ,  '31-MAR-1996'),
+							(107 , 'SIVANI' , 'VIRAR' , 1000.00 ,  '5-AUG-1995'),
+							(108 , 'KRANTI' , 'NEHRU PLACE ' , 5000.00 ,  '2-JUL-1995'),
+							(109 , 'MINU' , 'POEAI' , 7000.00 ,  '10-SEP-1995')
