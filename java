@@ -145,4 +145,143 @@ public class looping {
     }
 }
 
- 
+ =======================================================================================================
+
+
+  //leb 3 no A 
+
+  import java.util.Scanner;
+
+public class stud {
+    public static void main(String[] args) {
+        // Create a Scanner object for input
+        Scanner scanner = new Scanner(System.in);
+
+        // Create an array to store marks for 5 subjects
+        int[] marks = new int[5];
+
+        // Ask the user to input marks for 5 subjects
+        System.out.println("Enter the marks obtained in 5 subjects:");
+        int totalMarks = 0;
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Subject " + (i + 1) + ": ");
+            marks[i] = scanner.nextInt();
+            totalMarks += marks[i];  // Calculate the total marks
+        }
+
+        // Calculate the percentage
+        float percentage = (float) totalMarks / 5;
+
+        // Display the percentage
+        System.out.println("Percentage: " + percentage + "%");
+
+        // Determine the division based on the percentage
+        if (percentage >= 60) {
+            System.out.println("Division: First");
+        } else if (percentage >= 50 && percentage <= 59) {
+            System.out.println("Division: Second");
+        } else if (percentage >= 40 && percentage <= 49) {
+            System.out.println("Division: Third");
+        } else {
+            System.out.println("Division: Fail");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+==================================================================================
+
+ // leb 3 no b 
+
+ import java.util.Scanner;
+
+public class oddeven {
+    public static void main(String[] args) {
+        // Create a Scanner object for input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to input a number
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        // Check if the number is even or odd
+        if (number % 2 == 0) {
+            System.out.println(number + " is even.");
+        } else {
+            System.out.println(number + " is odd.");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+========================================================================================================================
+
+ // prime number 
+
+ import java.util.Scanner;
+public class prime {
+    public static void main(String[] args) {
+        int number = new Scanner(System.in).nextInt(); 
+        boolean isPrime = number > 1;
+
+        for (int i = 2; i <= Math.sqrt(number) && isPrime; i++) {
+            isPrime = number % i != 0;  
+        }
+        System.out.println(number + (isPrime ? " is a prime number." : " is not a prime number."));
+    }
+}
+
+// import java.util.Scanner;
+
+// public class prime  {
+//     public static void main(String[] args) {
+//         Scanner scanner = new Scanner(System.in);
+
+//         int start = scanner.nextInt();
+//         int  end = scanner.nextInt();
+
+//         for (int i = start; i <= end; i++) {
+//             if (i > 1) {  
+//                 boolean isPrime = true;               
+                
+//                 for (int j = 2; j <= Math.sqrt(i); j++) {
+//                     if (i % j == 0) {
+//                         isPrime = false;
+//                         break;
+//                     }
+//                 }                
+                
+//                 if (isPrime) System.out.println(i);
+//             }
+//         }
+//         scanner.close();
+//     }
+// }
+=============================================================================================================
+
+ //leb 3  no 6
+ import java.util.Scanner;
+
+public class year {
+    public static void main(String[] args) {
+        // Create a Scanner object for input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to input a year
+        System.out.print("Enter a year: ");
+        int year = scanner.nextInt();
+
+        // Check if the year is a leap year
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            System.out.println(year + " is a leap year.");
+        } else {
+            System.out.println(year + " is not a leap year.");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+
