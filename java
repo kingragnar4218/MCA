@@ -284,4 +284,89 @@ public class year {
         scanner.close();
     }
 }
+=============================================================================================================
+ 
+ leb 4  pro 1 to 3 
+ //  1
+ import java.util.Scanner;
+public class Vowels{
+    public static void main(String[] args) {
+     
+     Scanner scanner = new Scanner(System.in);
 
+
+        System.out.print("Enter string : ");
+        String  str = scanner.nextLine();
+
+        int vcount = 0;
+        int ccount = 0;
+
+        for(int i = 0 ; i<str.length() ; i++){
+            if(str.charAt(i)== 'a' || str.charAt(i)== 'e'||str.charAt(i)== 'i'||str.charAt(i)== 'o'||str.charAt(i)== 'u'||
+                str.charAt(i)== 'A' || str.charAt(i)== 'E'||str.charAt(i)== 'I'||str.charAt(i)== 'O'||str.charAt(i)== 'U')
+            {
+                vcount++;
+
+            }
+            else{
+                ccount++;
+            }
+
+           
+        }
+         System.out.println("vcount" + vcount );
+            System.out.println("ccount" + ccount);
+ }
+}
+=============================================================================================================
+ //   2
+ import java.util.Scanner;
+public class Arrarg{
+    public static void main(String[] args) {
+     
+     Scanner sc = new Scanner(System.in);
+
+
+        System.out.print("Enter array size : ");
+        int n = sc.nextInt();
+
+        int arr[] = new int[n];
+        double sum =0;
+
+        for(int i=0;i<n;i++){
+            arr[i] = sc.nextInt();
+            sum += arr[i];
+        }
+
+        double avg = sum / n;
+
+        System.out.print("avg : "+ avg);
+}
+}
+=============================================================================================================
+ //  3
+ import java.util.Scanner;
+public class Rev{
+    public static void main(String[] args) {
+     
+     Scanner sc = new Scanner(System.in);
+
+
+        System.out.print("Enter array size : ");
+        int n = sc.nextInt();
+
+        int arr[] = new int[n];
+        int p=0;
+
+   for(int i = 0; i<n ; i++){
+        
+            arr[i] = sc.nextInt();
+            
+    }
+        for(int i=n-1;i >= 0;i--){
+        System.out.print("array : " + arr[i]);
+        }
+
+
+}
+}
