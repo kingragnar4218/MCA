@@ -1,0 +1,87 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // User input for the number of overs
+        System.out.print("Enter the number of overs: ");
+        int numOvers = scanner.nextInt();
+        int totalBalls = numOvers * 6;  // Total balls in the match
+        scanner.nextLine();  // Consume the leftover newline
+
+        // Declare an array to represent balls in multiple overs
+        String[] balls = new String[totalBalls];
+
+        // Variables to track total runs, wickets, no-balls, and wide-balls
+        int totalRuns = 0;
+        int totalWickets = 0;
+        int totalNoBalls = 0;
+        int totalWideBalls = 0;
+
+        // Loop through all balls (based on the number of overs)
+        for (int i = 0; i < totalBalls; i++) {
+            if (totalWickets >= 10) {
+                System.out.println("Match is finished. Total wickets reached.");
+                break;  // Exit the loop if 10 wickets have been reached
+            }
+
+            System.out.print("Ball " + (i + 1) + ": Enter outcome (W for Wicket, N for No-ball, WB for Wide-ball, or runs 1-6): ");
+            String input = scanner.next().toUpperCase();  // Convert input to uppercase
+
+            // Validate input (W, N, WB, or numbers 1-6 for runs)
+            while (!input.equals("W") && !input.equals("N") && !input.equals("WB") && !isValidRun(input)) {
+                System.out.print("Invalid input. Please enter W (Wicket), N (No-ball), WB (Wide-ball), or a number between 1 and 6 for runs: ");
+                input = scanner.next().toUpperCase();
+            }
+
+            // Store the result in the array
+            balls[i] = input;
+
+            // Update the counters based on input
+            switch (input) {
+                case "W":
+                    totalWickets++;
+                    break;
+                case "N":
+                    totalNoBalls++;
+                    totalRuns++;  // Add 1 extra run for no-ball
+                    break;
+                case "WB":
+                    totalWideBalls++;
+                    totalRuns++;  // Add 1 extra run for wide-ball
+                    break;
+                default:
+                    totalRuns += Integer.parseInt(input);  // If it's a valid run, add to total runs
+            }
+
+            // Check if the over is completed and print the over summary
+            if ((i + 1) % 6 == 0) {
+                System.out.println("\nEnd of Over " + ((i + 1) / 6) + " Summary:");
+                for (int j = (i + 1) - 6; j <= i; j++) {
+                    System.out.println("Ball " + (j + 1) + ": " + balls[j]);
+                }
+                System.out.println();  // Blank line after each over summary
+            }
+        }
+
+        // Output the overall match summary
+        System.out.println("\nMatch Summary:");
+        System.out.println("Total Runs: " + totalRuns);
+        System.out.println("Total Wickets: " + totalWickets);
+        System.out.println("Total No-balls: " + totalNoBalls);
+        System.out.println("Total Wide-balls: " + totalWideBalls);
+
+        scanner.close();
+    }
+
+    // Helper method to check if the input is a valid run (1-6)
+    public static boolean isValidRun(String input) {
+        try {
+            int run = Integer.parseInt(input);  // Try to convert input to an integer
+            return run >= 1 && run <= 6;        // Check if it is between 1 and 6
+        } catch (NumberFormatException e) {
+            return false;  // If input is not a number, return false
+        }
+    }
+}
