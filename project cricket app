@@ -7,26 +7,27 @@ public class Main {
         // User input for the number of overs
         System.out.print("Enter the number of overs: ");
         int numOvers = scanner.nextInt();
-        int totalBalls = numOvers * 6;  // Total balls in the match
+        int totalBalls = numOvers * 6;  // Total legitimate balls in the match (not counting extra balls)
         scanner.nextLine();  // Consume the leftover newline
 
         // Declare an array to represent balls in multiple overs
-        String[] balls = new String[totalBalls];
+        String[] balls = new String[totalBalls + 100];  // Increased size to account for extra balls
 
-        // Variables to track total runs, wickets, no-balls, and wide-balls
+        // Variables to track total runs, wickets, no-balls, wide-balls, and current legitimate ball count
         int totalRuns = 0;
         int totalWickets = 0;
         int totalNoBalls = 0;
         int totalWideBalls = 0;
+        int legitimateBallCount = 0;
 
-        // Loop through all balls (based on the number of overs)
-        for (int i = 0; i < totalBalls; i++) {
+        // Loop through all balls until the number of legitimate balls equals the total balls
+        for (int i = 0; legitimateBallCount < totalBalls; i++) {
             if (totalWickets >= 10) {
                 System.out.println("Match is finished. Total wickets reached.");
                 break;  // Exit the loop if 10 wickets have been reached
             }
 
-            System.out.print("Ball " + (i + 1) + ": Enter outcome (W for Wicket, N for No-ball, WB for Wide-ball, or runs 1-6): ");
+            System.out.print("Ball " + (legitimateBallCount + 1) + ": Enter outcome (W for Wicket, N for No-ball, WB for Wide-ball, or runs 1-6): ");
             String input = scanner.next().toUpperCase();  // Convert input to uppercase
 
             // Validate input (W, N, WB, or numbers 1-6 for runs)
@@ -42,26 +43,28 @@ public class Main {
             switch (input) {
                 case "W":
                     totalWickets++;
+                    legitimateBallCount++;  // Wicket counts as a legitimate ball
                     break;
                 case "N":
                     totalNoBalls++;
                     totalRuns++;  // Add 1 extra run for no-ball
-                    break;
+                    break;  // No legitimate ball added for no-ball
                 case "WB":
                     totalWideBalls++;
                     totalRuns++;  // Add 1 extra run for wide-ball
-                    break;
+                    break;  // No legitimate ball added for wide-ball
                 default:
                     totalRuns += Integer.parseInt(input);  // If it's a valid run, add to total runs
+                    legitimateBallCount++;  // Legitimate ball counts towards the total
             }
 
             // Check if the over is completed and print the over summary
-            if ((i + 1) % 6 == 0) {
-                System.out.println("\nEnd of Over " + ((i + 1) / 6) + " Summary:");
-                for (int j = (i + 1) - 6; j <= i; j++) {
+            if (legitimateBallCount % 6 == 0 && legitimateBallCount != 0) {
+                System.out.println("\nEnd of Over " + (legitimateBallCount / 6) + " Summary:");
+                for (int j = legitimateBallCount - 6; j < legitimateBallCount; j++) {
                     System.out.println("Ball " + (j + 1) + ": " + balls[j]);
                 }
-                System.out.println();  // Blank line after each over summary
+                System.out.println();
             }
         }
 
