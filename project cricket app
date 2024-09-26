@@ -29,7 +29,7 @@ public class Main {
                 break;  // Exit the loop if 10 wickets have been reached
             }
 
-            System.out.print("Ball " + (legitimateBallCount + 1) + ": Enter outcome (W for Wicket, N for No-ball, WB for Wide-ball, or runs 0-6): ");
+            System.out.print("Ball " + (legitimateBallCount + 1) + ": Enter Run (W for Wicket, N for No-ball, WB for Wide-ball, or runs 0-6): ");
             String input = scanner.next().toUpperCase();  // Convert input to uppercase
 
             // Validate input (W, N, WB, or numbers 0-6 for runs)
