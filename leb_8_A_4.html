@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1 = (Number(prompt("enter a start number :")))
+        let num2 = (Number(prompt("enter a end number :")))
+        function myFunction(a, b) {
+	let smaller = Math.min(a, b);
+	let hcf = 1;
+
+	for (let i = 1; i <= smaller; i++) {
+		if (a % i === 0 && b % i === 0) {
+			hcf = i;
+		}
+	}
+
+	return hcf;
+}
+
+document.writeln("GCD of the giving numbers("+num1+"and"+num2+") is:", 
+	myFunction(num1, num2));
+
+    </script>
+</body>
+</html>
