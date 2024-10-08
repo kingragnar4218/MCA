@@ -366,7 +366,244 @@ public class Rev{
         for(int i=n-1;i >= 0;i--){
         System.out.print("array : " + arr[i]);
         }
-
-
 }
+}
+__________________________________________________________
+ // Parent class
+class Animal {
+    String name;
+
+    // Constructor of the parent class
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    // Method in the parent class
+    public void displayInfo() {
+        System.out.println("Animal name: " + name);
+    }
+}
+
+// Child class
+class Dog extends Animal {
+    String breed;
+
+    // Constructor of the child class
+    public Dog(String name, String breed) {
+        super(name);  // Calling the parent class constructor
+        this.breed = breed;
+    }
+
+    // Method in the child class
+    public void displayDetails() {
+        super.displayInfo();  // Calling the parent class method
+        System.out.println("Dog breed: " + breed);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating a Dog object
+        Dog dog = new Dog("Buddy", "Golden Retriever");
+
+        // Displaying details of the dog
+        dog.displayDetails();
+    }
+}
+
+
+
+_________________________________________________________
+ import java.util.Scanner;
+
+class Student {
+    private int id_no;
+    private int no_of_subjects_registered;
+    private String[] subject_code;
+    private int[] subject_credits;
+    private char[] grade_obtained;
+    private double spi;
+
+    // Constructor
+    public Student(int id_no, int no_of_subjects_registered, String[] subject_code, int[] subject_credits, char[] grade_obtained) {
+        this.id_no = id_no;
+        this.no_of_subjects_registered = no_of_subjects_registered;
+        this.subject_code = subject_code;
+        this.subject_credits = subject_credits;
+        this.grade_obtained = grade_obtained;
+        this.spi = calculateSPI();
+    }
+
+    // Method to calculate SPI
+    private double calculateSPI() {
+        int totalCredits = 0;
+        double totalPoints = 0;
+
+        for (int i = 0; i < no_of_subjects_registered; i++) {
+            totalCredits += subject_credits[i];
+            totalPoints += gradeToPoints(grade_obtained[i]) * subject_credits[i];
+        }
+
+        return totalPoints / totalCredits;
+    }
+
+    // Convert grade to points
+    private double gradeToPoints(char grade) {
+        switch (grade) {
+            case 'A': return 10.0;
+            case 'B': return 8.0;
+            case 'C': return 6.0;
+            case 'D': return 4.0;
+            case 'E': return 2.0;
+            case 'F': return 0.0;
+            default: return 0.0;
+        }
+    }
+
+    // Method to display student details
+    public void displayDetails() {
+        System.out.println("ID No: " + id_no);
+        System.out.println("SPI: " + spi);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter the number of students:");
+        int n = scanner.nextInt();
+        
+        Student[] students = new Student[n];
+        
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter details for student " + (i + 1) + ":");
+            
+            System.out.print("ID No: ");
+            int id_no = scanner.nextInt();
+            
+            System.out.print("Number of subjects registered: ");
+            int no_of_subjects_registered = scanner.nextInt();
+            
+            String[] subject_code = new String[no_of_subjects_registered];
+            int[] subject_credits = new int[no_of_subjects_registered];
+            char[] grade_obtained = new char[no_of_subjects_registered];
+            
+            for (int j = 0; j < no_of_subjects_registered; j++) {
+                System.out.print("Enter subject code " + (j + 1) + ": ");
+                subject_code[j] = scanner.next();
+                
+                System.out.print("Enter subject credits " + (j + 1) + ": ");
+                subject_credits[j] = scanner.nextInt();
+                
+                System.out.print("Enter grade obtained " + (j + 1) + ": ");
+                grade_obtained[j] = scanner.next().charAt(0);
+            }
+            
+            // Creating the student object
+            students[i] = new Student(id_no, no_of_subjects_registered, subject_code, subject_credits, grade_obtained);
+        }
+        
+        // Display the SPI of each student
+        for (int i = 0; i < n; i++) {
+            System.out.println("\nDetails for student " + (i + 1) + ":");
+            students[i].displayDetails();
+        }
+
+        scanner.close();
+    }
+}import java.util.Scanner;
+
+class Student {
+    private int id_no;
+    private int no_of_subjects_registered;
+    private String[] subject_code;
+    private int[] subject_credits;
+    private char[] grade_obtained;
+    private double spi;
+
+    // Constructor
+    public Student(int id_no, int no_of_subjects_registered, String[] subject_code, int[] subject_credits, char[] grade_obtained) {
+        this.id_no = id_no;
+        this.no_of_subjects_registered = no_of_subjects_registered;
+        this.subject_code = subject_code;
+        this.subject_credits = subject_credits;
+        this.grade_obtained = grade_obtained;
+        this.spi = calculateSPI();
+    }
+
+    // Method to calculate SPI
+    private double calculateSPI() {
+        int totalCredits = 0;
+        double totalPoints = 0;
+
+        for (int i = 0; i < no_of_subjects_registered; i++) {
+            totalCredits += subject_credits[i];
+            totalPoints += gradeToPoints(grade_obtained[i]) * subject_credits[i];
+        }
+
+        return totalPoints / totalCredits;
+    }
+
+    // Convert grade to points
+    private double gradeToPoints(char grade) {
+        switch (grade) {
+            case 'A': return 10.0;
+            case 'B': return 8.0;
+            case 'C': return 6.0;
+            case 'D': return 4.0;
+            case 'E': return 2.0;
+            case 'F': return 0.0;
+            default: return 0.0;
+        }
+    }
+
+    // Method to display student details
+    public void displayDetails() {
+        System.out.println("ID No: " + id_no);
+        System.out.println("SPI: " + spi);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter the number of students:");
+        int n = scanner.nextInt();
+        
+        Student[] students = new Student[n];
+        
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter details for student " + (i + 1) + ":");
+            
+            System.out.print("ID No: ");
+            int id_no = scanner.nextInt();
+            
+            System.out.print("Number of subjects registered: ");
+            int no_of_subjects_registered = scanner.nextInt();
+            
+            String[] subject_code = new String[no_of_subjects_registered];
+            int[] subject_credits = new int[no_of_subjects_registered];
+            char[] grade_obtained = new char[no_of_subjects_registered];
+            
+            for (int j = 0; j < no_of_subjects_registered; j++) {
+                System.out.print("Enter subject code " + (j + 1) + ": ");
+                subject_code[j] = scanner.next();
+                
+                System.out.print("Enter subject credits " + (j + 1) + ": ");
+                subject_credits[j] = scanner.nextInt();
+                
+                System.out.print("Enter grade obtained " + (j + 1) + ": ");
+                grade_obtained[j] = scanner.next().charAt(0);
+            }
+            
+            // Creating the student object
+            students[i] = new Student(id_no, no_of_subjects_registered, subject_code, subject_credits, grade_obtained);
+        }
+        
+        // Display the SPI of each student
+        for (int i = 0; i < n; i++) {
+            System.out.println("\nDetails for student " + (i + 1) + ":");
+            students[i].displayDetails();
+        }
+
+        scanner.close();
+    }
 }
