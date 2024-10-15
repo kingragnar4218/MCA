@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <div id="div1" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet pariatur dolorum harum voluptates dignissimos maiores necessitatibus, facilis sint iusto, consectetur non id quaerat incidunt distinctio dolor iure? Laborum, ipsum corrupti!</div>
+     <h1> <span id="s1">none</span></h1>
+    <script>
+        var hhh= document.getElementById("div1");
+        var ttt= document.getElementById("s1");
+        function hover1(){
+            ttt.textContent=event.type
+        }
+        hhh.addEventListener("click", hover1 )
+        hhh.addEventListener("onmousemove", hover1) 
+        
+     </script>
+     
+    
+</body>
+</html>

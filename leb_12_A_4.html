@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="" id="formid">
+        <h1>event <span id="spanid"></span></h1>
+        <input type="text" id="txt">
+        <button type="submit" id="button1" onclick="actionevent()">submit..</button>
+    </form>
+    <script>
+        
+        var span= document.getElementById("spanid");
+        var text= document.getElementById("txt");
+        var btn= document.getElementById("button1");
+        
+        function actionevent(event){
+            
+          
+            span.textContent=event.type
+            event.preventDefault()
+
+        }
+        
+        btn.addEventListener("submit",actionevent)
+        text.addEventListener("input",actionevent)
+     </script>
+</body>
+</html>
