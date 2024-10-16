@@ -21,3 +21,45 @@ INSERT INTO ACCOUNT VALUES  (101 , 'ANIL' , 'VRCE' , 1000.00 ,  '1-MAR-1995'),
 							(107 , 'SIVANI' , 'VIRAR' , 1000.00 ,  '5-AUG-1995'),
 							(108 , 'KRANTI' , 'NEHRU PLACE ' , 5000.00 ,  '2-JUL-1995'),
 							(109 , 'MINU' , 'POEAI' , 7000.00 ,  '10-SEP-1995')
+-------------------------------------------------------------------------------------------------------------------------------
+leb 16 
+1.=> use MCA_135 // CREATE DATABACE IN MONGODB 
+2.=> switched to db MCA_135 // YOU INTER IN DATABACE 
+3.=> db.createCollection("DEPOSIT")// CREATE NEW COLLECTION IN DB 
+   { ok: 1 }
+4.=> db.DEPOSIT.insertMany([
+    { ACTNO: 101, CNAME: "ANIL", BNAME: "VRCE", AMOUNT: 1000.00, ADATE: new Date("1995-03-01") },
+    { ACTNO: 102, CNAME: "SUNIL", BNAME: "AJNI", AMOUNT: 5000.00, ADATE: new Date("1996-01-04") },
+    { ACTNO: 103, CNAME: "MEHUL", BNAME: "KAROLBAGH", AMOUNT: 3500.00, ADATE: new Date("1995-11-17") },
+    { ACTNO: 104, CNAME: "MADHURI", BNAME: "CHANDI", AMOUNT: 1200.00, ADATE: new Date("1995-12-17") },
+    { ACTNO: 105, CNAME: "PRMOD", BNAME: "M.G. ROAD", AMOUNT: 3000.00, ADATE: new Date("1996-03-27") },
+    { ACTNO: 106, CNAME: "SANDIP", BNAME: "ANDHERI", AMOUNT: 2000.00, ADATE: new Date("1996-03-31") },
+    { ACTNO: 107, CNAME: "SHIVANI", BNAME: "VIRAR", AMOUNT: 1000.00, ADATE: new Date("1995-09-05") },
+    { ACTNO: 108, CNAME: "KRANTI", BNAME: "NEHRU PLACE", AMOUNT: 5000.00, ADATE: new Date("1995-07-02") }
+]) // INSERT DATA MANNY ROWS IN COLLECTION 
+    	acknowledged: true
+5.=> db.DEPOSIT.find().forEach(printjson)
+6.=> db.DEPOSIT.find().pretty()
+7.=> db.DEPOSIT.findOne() // display only one 
+8.=> db.DEPOSIT.insertOne({ACTON:109,CNAME:'KIRTI', BNAME:'VIRAR', AMOUNT:3000.00, ADATE:3-5-97})
+9.=> db.DEPOSIT.insertMany([{ ACTON: 110,
+  CNAME: 'MITALI',
+  BNAME: 'ANDHERI',
+  AMOUNT: 4500,
+  ADATE: "1995-09-04"},{
+  
+  ACTON: 111,
+  CNAME: 'RAJIV',
+  BNAME: 'NEHRU PLACE',
+  AMOUNT: 7000,
+  ADATE: "1998-10-2"
+}]) 
+10.=> db.DEPOSIT.find({},{CNAME:1, BNAME:1, AMOUNT:1})
+11.=> db.DEPOSIT.find().sort({CNAME:1}) //ascending order by CNAME
+12.=> db.DEPOSIT.find().sort({BNAME:-1}) //  descending order by BNAME.
+13.=> db.DEPOSIT.find().sort({ACTNO: 1 , AMOUNT:-1 }) // ascending order by ACTNO and descending order by AMOUNT.
+14.=> db.DEPOSIT.find().limit(2) // only two documents of Deposit collection
+15.=> db.DEPOSIT.find().skip(2).limit(1) // 3rd document of Deposit collection
+16.=> db.DEPOSIT.find().skip(5).limit(2) //  6th and 7th documents of Deposit collection
+17.=> db.DEPOSIT.countDocuments() //  count of documents in Deposit collection
+18.=> db.DEPOSIT.find().sort({ AMOUNT:-1})
