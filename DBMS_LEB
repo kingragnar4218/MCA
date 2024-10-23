@@ -63,3 +63,98 @@ leb 16
 16.=> db.DEPOSIT.find().skip(5).limit(2) //  6th and 7th documents of Deposit collection
 17.=> db.DEPOSIT.countDocuments() //  count of documents in Deposit collection
 18.=> db.DEPOSIT.find().sort({ AMOUNT:-1})
+_____________________________________________________________________________________________________________________________________________
+LEB  17 
+1.=> db.createCollection("employee")
+2.=> db.employee.insertMany([
+    { EID: 1, ENAME: "Nick", GENDER: "Male", JoiningDate: new Date("2013-01-01"), Salary: 4000, City: "London" },
+    { EID: 2, ENAME: "Julian", GENDER: "Female", JoiningDate: new Date("2014-10-01"), Salary: 3000, City: "New York" },
+    { EID: 3, ENAME: "Roy", GENDER: "Male", JoiningDate: new Date("2016-06-01"), Salary: 3500, City: "London" },
+    { EID: 4, ENAME: "Tom", GENDER: "Male", JoiningDate: null, Salary: 4500, City: "London" },
+    { EID: 5, ENAME: "Jerry", GENDER: "Male", JoiningDate: new Date("2013-02-01"), Salary: 2800, City: "Sydney" },
+    { EID: 6, ENAME: "Philip", GENDER: "Male", JoiningDate: new Date("2015-01-01"), Salary: 7000, City: "New York" },
+    { EID: 7, ENAME: "Sara", GENDER: "Female", JoiningDate: new Date("2017-08-01"), Salary: 4800, City: "Sydney" },
+    { EID: 8, ENAME: "Emily", GENDER: "Female", JoiningDate: new Date("2015-01-01"), Salary: 5500, City: "New York" },
+    { EID: 9, ENAME: "Michael", GENDER: "Male", JoiningDate: null, Salary: 6500, City: "London" },
+    { EID: 10, ENAME: "John", GENDER: "Male", JoiningDate: new Date("2015-01-01"), Salary: 8800, City: "London" }
+])
+1.=> db.employee.find({GENDER:"Male"})
+2.=> db.employee.find({City: 'London'})
+3.=> db.employee.find({Salary:{$gt:3500 }} )
+4.=> db.employee.find({JoiningDate:{$lt:new Date("2015-01-01")}})
+5.=> db.employee.find({ EID: {$gte:7 } })
+6.=> db.employee.find({ City :{$in:['London' , 'New York'] } })
+7.=> db.employee.find({ City :{$nin:['London' , 'New York'] } })
+8.=> db.employee.find({City: 'London'},{EID: 1} )
+9.=> db.employee.find({City: 'New York'} ).limit(2).skip(2)
+10.=> db.employee.find({ City: 'Sydney' , GENDER: 'Male' }  )
+11.=> db.employee.find({City:{$in :["London" , "Sydney" ]}}, {  ENAME:1 , City: 1 , Salary:1})
+12.=> db.employee.find({Salary:{$gt :7000 }}, { EID: 1, ENAME:1 , City: 1 , Salary:1})
+13.=> db.employee.find({ENAME: /^e/i} )
+14.=> db.employee.find({ENAME: /^[sm]/i} )
+_____________________________________________________________________________________________________________________________________________
+LEB 19 
+db.BRANCH.insertMany([
+    { BNAME: "VRCE", CITY: "NAGPUR" },
+    { BNAME: "AJNI", CITY: "NAGPUR" },
+    { BNAME: "KAROLBAGH", CITY: "DELHI" },
+    { BNAME: "CHANDI", CITY: "DELHI" },
+    { BNAME: "DHARAMPETH", CITY: "NAGPUR" },
+    { BNAME: "M.G. ROAD", CITY: "BANGLORE" },
+    { BNAME: "ANDHERI", CITY: "BOMBAY" },
+    { BNAME: "VIRAR", CITY: "BOMBAY" },
+    { BNAME: "NEHRU PLACE", CITY: "DELHI" },
+    { BNAME: "POWAI", CITY: "BOMBAY" }
+]);
+db.CUSTOMERS.insertMany([
+    { CNAME: "ANIL", CITY: "CALCUTTA" },
+    { CNAME: "SUNIL", CITY: "DELHI" },
+    { CNAME: "MEHUL", CITY: "BARODA" },
+    { CNAME: "MANDAR", CITY: "PATNA" },
+    { CNAME: "MADHURI", CITY: "NAGPUR" },
+    { CNAME: "PRAMOD", CITY: "NAGPUR" },
+    { CNAME: "SANDIP", CITY: "SURAT" },
+    { CNAME: "SHIVANI", CITY: "BOMBAY" },
+    { CNAME: "KRANTI", CITY: "BOMBAY" },
+    { CNAME: "NAREN", CITY: "BOMBAY" }
+]);
+db.BORROW.insertMany([
+    { LOANNO: 201, CNAME: "ANIL", BNAME: "VRCE", AMOUNT: 1000.00 },
+    { LOANNO: 206, CNAME: "MEHUL", BNAME: "AJNI", AMOUNT: 5000.00 },
+    { LOANNO: 311, CNAME: "SUNIL", BNAME: "DHARAMPETH", AMOUNT: 3000.00 },
+    { LOANNO: 321, CNAME: "MADHURI", BNAME: "ANDHERI", AMOUNT: 2000.00 },
+    { LOANNO: 375, CNAME: "PRMOD", BNAME: "VIRAR", AMOUNT: 8000.00 },
+    { LOANNO: 481, CNAME: "KRANTI", BNAME: "NEHRU PLACE", AMOUNT: 3000.00 }
+]);																							           
+db.DEPOSIT.insertMany([
+    { ACTNO: 101, CNAME: "ANIL", BNAME: "VRCE", AMOUNT: 1000.00, ADATE: new Date("1995-03-01") },
+    { ACTNO: 102, CNAME: "SUNIL", BNAME: "AJNI", AMOUNT: 5000.00, ADATE: new Date("1996-01-04") },
+    { ACTNO: 103, CNAME: "MEHUL", BNAME: "KAROLBAGH", AMOUNT: 3500.00, ADATE: new Date("1995-11-17") },
+    { ACTNO: 104, CNAME: "MADHURI", BNAME: "CHANDI", AMOUNT: 1200.00, ADATE: new Date("1995-12-17") },
+    { ACTNO: 105, CNAME: "PRMOD", BNAME: "M.G. ROAD", AMOUNT: 3000.00, ADATE: new Date("1996-03-27") },
+    { ACTNO: 106, CNAME: "SANDIP", BNAME: "ANDHERI", AMOUNT: 2000.00, ADATE: new Date("1996-03-31") },
+    { ACTNO: 107, CNAME: "SHIVANI", BNAME: "VIRAR", AMOUNT: 1000.00, ADATE: new Date("1995-09-05") },
+    { ACTNO: 108, CNAME: "KRANTI", BNAME: "NEHRU PLACE", AMOUNT: 5000.00, ADATE: new Date("1995-07-02") },
+    { ACTNO: 109, CNAME: "MINU", BNAME: "POWAI", AMOUNT: 7000.00, ADATE: new Date("1995-08-10") }
+]);
+1.=> db.DEPOSIT.find()
+2.=> db.BRANCH.find()
+3.=> db.CUSTOMERS.find()
+4.=> db.BORROW.insertOne({ LOANNO: 550, CNAME: "JAY", BNAME: "AJNI", AMOUNT:null })
+5.=> db.CUSTOMERS.find({},{ ACTNO: 1,  CNAME: 1,  AMOUNT:1})
+6.=> db.BORROW.find({},{LOANNO:1,AMOUNT:1})
+7.=> db.BORROW.find({ AMOUNT:{$gt:5000.00} })
+8.=> db.DEPOSIT.find({ACTNO: 106})
+9.=> db.BORROW.find({ AMOUNT: 5000.00})
+10.=> db.DEPOSIT.find({ADATE: new Date("1996-01-12")})
+__________________________________________________________________________________________________________________________
+LEB 20 
+db.STUDENT.insertMany([
+    { RollNo: 101, Name: "Keyur", Birthdate: new Date("1992-01-05"), SPI: 8.5, City: "Rajkot", Backlog: 2, Branch: "CE" },
+    { RollNo: 102, Name: "Hardik", Birthdate: new Date("1994-02-15"), SPI: 9.0, City: "Ahmedabad", Backlog: 0, Branch: "CE" },
+    { RollNo: 103, Name: "Kajal", Birthdate: new Date("1996-03-14"), SPI: 10.00, City: "Baroda", Backlog: 0, Branch: "IT" },
+    { RollNo: 104, Name: "Bhoomi", Birthdate: new Date("1995-06-23"), SPI: 8.90, City: "Ahmedabad", Backlog: 1, Branch: "ICT" },
+    { RollNo: 105, Name: "Harmit", Birthdate: new Date("1994-02-15"), SPI: 9.80, City: "Rajkot", Backlog: 1, Branch: "IT" },
+    { RollNo: 106, Name: "Jay", Birthdate: new Date("1994-02-15"), SPI: 7.9, City: "Rajkot", Backlog: 2, Branch: "CE" }
+]);
+1.=> 
