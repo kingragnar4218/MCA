@@ -587,4 +587,66 @@ public class FinalKeywordDemo {
         finalClassObj.showMessage();
     }
 }
+==========================================================================================================================
+ class myRunnable implements Runnable {
+    Thread t;
 
+    myRunnable() {
+        System.out.println("Thread Is Created");
+        t = new Thread(this); 
+        t.start();
+    }
+
+    public void run() {
+        try {
+            for (int i = 0; i <= 5; i++) {
+                System.out.println("Child Thread " + i);
+                Thread.sleep(500);
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e.toString());
+        }
+    }
+}
+
+public class treadrunneble {
+    public static void main(String[] args) {
+        new myRunnable();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println(e.toString());
+        }
+    }
+}
+=================================================================================================================================
+ class myThread1 extends Thread {
+    myThread1() {
+        System.out.println("Thread Is Created");
+        start();
+    }
+
+    public void run() {
+        try {
+            for (int i = 0; i <= 5; i++) {
+                System.out.println("Child Thread " + i);
+                Thread.sleep(500);
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e.toString());
+        }
+    }
+}
+
+public class myThread {
+    public static void main(String[] args) {
+        new myThread1();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            System.out.println(e.toString());
+        }
+    }
+}
