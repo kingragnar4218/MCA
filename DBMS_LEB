@@ -92,6 +92,17 @@ LEB  17
 12.=> db.employee.find({Salary:{$gt :7000 }}, { EID: 1, ENAME:1 , City: 1 , Salary:1})
 13.=> db.employee.find({ENAME: /^e/i} )
 14.=> db.employee.find({ENAME: /^[sm]/i} )
+15.=> db.EMPLOYEE.find({City:/^[a-m]/i})
+16.=> db.EMPLOYEE.find({City:/ney$/i})
+17.=> db.EMPLOYEE.find({City:/n/i})
+18.=> db.EMPLOYEE.find({ENAME:/^e..../i})
+19.=> db.EMPLOYEE.find({ENAME:/^s.*a$/i})
+20.=> db.EMPLOYEE.find({ENAME:/^phi/i} , {EID :1,ENAME:1, Salary:1, City:1})
+21.=> db.EMPLOYEE.find({City:/dne/i} , {EID :1,ENAME:1, JoiningDate:1, City:1})
+22.=> db.EMPLOYEE.find({City:{$nin:['London','Sydney']}} , {EID :1,ENAME:1, JoiningDate:1, City:1})
+23.=>db.EMPLOYEE.deleteMany({City: 'New York'})
+24.=>db.EMPLOYEE.updateOne({ENAME: 'Nick'} , {$set:{ENAME:"Naysa" ,GENDER:"Female"  } })
+
 _____________________________________________________________________________________________________________________________________________
 LEB 18 
 db.BRANCH.insertMany([
