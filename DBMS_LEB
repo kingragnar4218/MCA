@@ -102,7 +102,112 @@ LEB  17
 22.=> db.EMPLOYEE.find({City:{$nin:['London','Sydney']}} , {EID :1,ENAME:1, JoiningDate:1, City:1})
 23.=>db.EMPLOYEE.deleteMany({City: 'New York'})
 24.=>db.EMPLOYEE.updateOne({ENAME: 'Nick'} , {$set:{ENAME:"Naysa" ,GENDER:"Female"  } })
-
+_____________________________________________________________________________________________________________________________________________
+PART : B 
+1.=> db.STUDENT.insertMany([
+    {
+        "ROLLNO": 101,
+        "SNAME": "Vina",
+        "DEPARTMENT": "CE",
+        "FEES": 15000,
+        "SEM": 3,
+        "GENDER": "Female",
+        "CITY": "Rajkot"
+    },
+    {
+        "ROLLNO": 102,
+        "SNAME": "Krisha",
+        "DEPARTMENT": "EC",
+        "FEES": 8000,
+        "SEM": 5,
+        "GENDER": "Female",
+        "CITY": "Ahmedabad"
+    },
+    {
+        "ROLLNO": 103,
+        "SNAME": "Priti",
+        "DEPARTMENT": "Civil",
+        "FEES": 12000,
+        "SEM": 7,
+        "GENDER": "Female",
+        "CITY": "Baroda"
+    },
+    {
+        "ROLLNO": 104,
+        "SNAME": "Mitul",
+        "DEPARTMENT": "CE",
+        "FEES": 15000,
+        "SEM": 3,
+        "GENDER": "Male",
+        "CITY": "Rajkot"
+    },
+    {
+        "ROLLNO": 105,
+        "SNAME": "Keshav",
+        "DEPARTMENT": "CE",
+        "FEES": 15000,
+        "SEM": 3,
+        "GENDER": "Male",
+        "CITY": "Jamnagar"
+    },
+    {
+        "ROLLNO": 106,
+        "SNAME": "Zarna",
+        "DEPARTMENT": "Civil",
+        "FEES": 12000,
+        "SEM": 5,
+        "GENDER": "Female",
+        "CITY": "Ahmedabad"
+    },
+    {
+        "ROLLNO": 107,
+        "SNAME": "Nima",
+        "DEPARTMENT": "EE",
+        "FEES": 9000,
+        "SEM": 5,
+        "GENDER": "Female",
+        "CITY": "Rajkot"
+    },
+    {
+        "ROLLNO": 108,
+        "SNAME": "Dhruv",
+        "DEPARTMENT": "Mechanical",
+        "FEES": 10000,
+        "SEM": 5,
+        "GENDER": "Male",
+        "CITY": "Rajkot"
+    },
+    {
+        "ROLLNO": 109,
+        "SNAME": "Krish",
+        "DEPARTMENT": "Mechanical",
+        "FEES": 10000,
+        "SEM": 7,
+        "GENDER": "Male",
+        "CITY": "Baroda"
+    },
+    {
+        "ROLLNO": 110,
+        "SNAME": "Zeel",
+        "DEPARTMENT": "EE",
+        "FEES": 9000,
+        "SEM": 3,
+        "GENDER": "Female",
+        "CITY": "Jamnagar"
+    }
+]
+)
+1.=> db.STUDENT.find({GENDER: 'Female'})
+2.=> db.STUDENT.find({ CITY: 'Rajkot'})
+3.=> db.STUDENT.find({ SEM: 7})
+4.=> db.STUDENT.find({SEM:{$ne:3}})
+5.=> db.STUDENT.find({ROLLNO:{$gt:107}})
+6.=> db.STUDENT.find({CITY:{$in:["Jamnagar","Baroda"]}})
+7.=> db.STUDENT.find({FEES:{$lt:9000}})
+8.=> db.STUDENT.find({DEPARTMENT:"Mechanical"}, {ROLLNO:1})
+9.=> db.STUDENT.find( {CITY: 'Baroda'}).limit(2)
+10.=> db.STUDENT.find({GENDER: 'Male' ,  SEM: 3})
+11 thi baki che 
 _____________________________________________________________________________________________________________________________________________
 LEB 18 
 db.BRANCH.insertMany([
