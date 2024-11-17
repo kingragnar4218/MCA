@@ -400,3 +400,40 @@ PART : C
 3.=> db.STUDENT.aggregate([{$group:{_id:'$DEPARTMENT' , max_fees:{$max:'$FEES'}  , minimum:{$min:'$FEES'} }}])
 4.=> db.STUDENT.aggregate([{ $match:{CITY: 'Rajkot'} } ,  {$count:'total_student'} ])
 5.=> db.STUDENT.aggregate([  {$group:{_id:'$DEPARTMENT' , total_student:{$sum:1}}} ])
+_________________________________________________________________________________________________________________________
+LEB : 22 
+---------
+PART : A |
+---------
+1.=> db.STUDENT2.find({FirstName:/^k/i } )
+2.=> db.STUDENT2.find({FirstName:/...../i})
+3.=> db.STUDENT2.find({City:/.....a$/i},{FirstName:1  , LastName: 1 , City:1} )
+4.=> db.STUDENT2.find({LastName:/tel$/i},{FirstName:1  , LastName: 1} )	
+5.=> db.STUDENT2.find({FirstName:/^ha.*t$/i},{FirstName:1  , LastName: 1 , City:1} )
+6.=>db.STUDENT2.find({FirstName:/^k.y/i},{FirstName:1  , LastName: 1 , City:1} )
+7.=> db.STUDENT2.find({LastName:/jer/i})
+8.=> db.STUDENT2.find({City:/^[rb]/i},{FirstName:1  , LastName: 1 , City:1} )
+9.=>  //   
+10.=>  db.STUDENT2.find({Website:{$ne:null}} )
+----------
+PART : B |
+----------
+1.=> db.STUDENT2.find({FirstName:/^[a-h]/i} )
+2.=> db.STUDENT2.find({FirstName:/^.[AEIOU]/i} )
+3.=> ///
+4.=>db.STUDENT2.find({Website:/^bi/i} ,{FirstName:1 , LastName:1 ,Website:1 } )
+5.=> db.STUDENT2.find({LastName:/....../i} ,{LastName:1 ,City:1 } )
+----------
+PART : C  |
+----------
+1.=> db.STUDENT2.find({City:{$not:/^ba.../i}} ,{City:1 } ) // ERROR THIS QUERY 
+2.=>
+3.=> db.STUDENT2.find({Division:/bc/i} )
+4.=> db.STUDENT2.find( {
+    $and: [
+      { Division: /^.{6}$/i }, // Matches Division with exactly 6 characters (case-insensitive)
+      { Website: { $ne: null } } // Ensures the Website field is not null
+    ]
+  })
+5.=> db.STUDENT2.find({FirstName:{$not:/^.[AEIOU]/i}} )
+
