@@ -373,4 +373,13 @@ db.ACCOUNT.insertMany([
   { EmpName: { $in: ["Keyur", "Bhoomi"] } },
   { $set: { City: null } }
 )
-5.=> ///  bi che aayathi 
+5.=> db.EMPLOYEE.find({City: null})
+6.=> db.EMPLOYEE.deleteMany({Salary:{$gte:14000 }} , {})
+NOTE : QUERY 7 AND 8 COMPLITED
+9.=> db.EMPLOYEE.deleteMany({})
+------------
+PART : B   |
+------------
+2.=>db.ACCOUNT.find({} , {CNAME:1 , _id:0}).sort({AMOUNT:1 , CNAME:-1 })
+5.=>db.ACCOUNT.deleteMany({ AMOUNT:{$gte: 4000 }})
+6.=> db.ACCOUNT.deleteMany({ ADATE: {$gt:new Date('1995-10-01')}})
