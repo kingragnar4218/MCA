@@ -218,6 +218,14 @@ PART : B
 19.=> db.STUDENT.deleteMany({ CITY: 'Jamnagar' })
 20.=> db.STUDENT.updateOne({SNAME: 'Krish'} , {$set:{SNAME: 'fenny', GENDER: 'Female' }} )
 _____________________________________________________________________________________________________________________________________________
+PART : C 
+--------
+1.=> db.STUDENT.find({CITY: 'Ahmedabad'}).limit(2).skip(2)
+2.=> db.STUDENT.find({CITY: 'Baroda' ,DEPARTMENT: 'CE' } , {ROLLNO: 1,  SNAME:1,  DEPARTMENT:1,  FEES:1})
+3.=> db.STUDENT.find({CITY:/oda$/i })
+4.=> db.STUDENT.find({SNAME:/v/i })
+5.=> db.STUDENT.find({SNAME:/v.../i })
+_____________________________________________________________________________________________________________________________________________
 LEB 18 
 db.BRANCH.insertMany([
     { BNAME: "VRCE", CITY: "NAGPUR" },
@@ -272,6 +280,36 @@ db.DEPOSIT.insertMany([
 8.=> db.DEPOSIT.find({ACTNO: 106})
 9.=> db.BORROW.find({ AMOUNT: 5000.00})
 10.=> db.DEPOSIT.find({ADATE: new Date("1996-01-12")})
+__________________________________________________________________________________________________________________________
+PART - B
+--------
+1.=> db.DEPOSIT.find({ACTNO:{$lt:105}})
+2.=> db.CUSTOMERS.find({CITY:{$in:['NAGPUR' , 'DELHI']}})
+3.=> db.DEPOSIT.find({AMOUNT:{$gt:4000},  ACTNO:{$lt:105}})
+4.=> db.DEPOSIT.find({AMOUNT:{$gte:3000 , $lte:8000} })
+5.=> db.CUSTOMERS.find({CITY:{$nin:['ANDHERI']}})
+6.=> db.DEPOSIT.find({BNAME:{$in:['AJNI' ,'KAROLBAGH' , 'M.G. ROAD' ]}} , {ACTNO:1 ,CNAME:1 , AMOUNT:1  })
+7.=> db.DEPOSIT.find().limit(5)
+8.=> db.DEPOSIT.find({AMOUNT:{$gt:1000}}).limit(3)
+9.=> db.BORROW.find({ BNAME: {$nin:['ANDHERI']} }, {  LOANNO: 1,  CNAME:1}).limit(5)
+10.=> db.CUSTOMERS.distinct('CITY')
+__________________________________________________________________________________________________________________________
+PART : C 
+---------
+1.=> db.BRANCH.distinct("BNAME")
+2.=> db.CUSTOMERS.find({} , {CITY:1}).sort({CITY:1})
+3.=> db.DEPOSIT.find().sort({ACTNO:-1})
+4.=> db.DEPOSIT.updateMany({ AMOUNT: 3000 } , { $set:{ AMOUNT: 5000} })
+5.=> db.BORROW.updateOne({CNAME: 'ANIL'} , {$set:{ BNAME:'C.G. ROAD' }})
+6.=> db.DEPOSIT.updateOne({ CNAME: 'SANDIP' } , { $set:{ ACTNO:111 , AMOUNT:5000  }})
+7.=> error in this query ----> .updateMany(
+    { AMOUNT: { $type: "number" } }, 
+    { $mul: { AMOUNT: 1.10 } }
+)
+8.=> db.DEPOSIT.updateMany({ACTNO:{$gte:103 , $lte:107}} , { $set:{AMOUNT:5000} })
+9.=> db.BORROW.updateOne({ LOANNO: 321} , {$set:{AMOUNT: null}}) 
+10.=> db.BORROW.find({AMOUNT: null})
+
 __________________________________________________________________________________________________________________________
 LEB 19 
 db.STUDENT.insertMany([
