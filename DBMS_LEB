@@ -436,4 +436,14 @@ PART : C  |
     ]
   })
 5.=> db.STUDENT2.find({FirstName:{$not:/^.[AEIOU]/i}} )
-
+_________________________________________________________________________________________________________________________
+LEB : 24
+-----------
+PART : A  |
+-----------
+1.=>db.EMPLOYEE1.aggregate([{$group:{_id:null , hh:{$max:'$Salary'} , ll:{$min:'$Salary'} , avg:{$avg:'$Salary'} , total:{$sum:'$Salary'}}}])
+2.=> db.EMPLOYEE1.countDocuments()
+3.=>db.EMPLOYEE1.aggregate([ {$match:{ Department: 'IT'}} , {$group:{_id:null , hh:{$max:'$Salary'} }}])
+4.=>db.EMPLOYEE1.aggregate([{$group:{_id:'$City' , totalemp:{$sum:1} } }]) 
+5.=>
+6.=>
