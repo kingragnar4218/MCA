@@ -438,6 +438,65 @@ PART : C  |
 5.=> db.STUDENT2.find({FirstName:{$not:/^.[AEIOU]/i}} )
 _________________________________________________________________________________________________________________________
 LEB : 24
+[
+  {
+    "EID": 101,
+    "EName": "Rahul",
+    "Department": "Admin",
+    "Salary": 56000,
+    "JoiningDate": "1-Jan-90",
+    "City": "Rajkot"
+  },
+  {
+    "EID": 102,
+    "EName": "Hardik",
+    "Department": "IT",
+    "Salary": 18000,
+    "JoiningDate": "25-Sep-90",
+    "City": "Ahmedabad"
+  },
+  {
+    "EID": 103,
+    "EName": "Bhavin",
+    "Department": "HR",
+    "Salary": 25000,
+    "JoiningDate": "14-May-91",
+    "City": "Baroda"
+  },
+  {
+    "EID": 104,
+    "EName": "Bhoomi",
+    "Department": "Admin",
+    "Salary": 39000,
+    "JoiningDate": "8-Feb-91",
+    "City": "Rajkot"
+  },
+  {
+    "EID": 105,
+    "EName": "Rohit",
+    "Department": "IT",
+    "Salary": 17000,
+    "JoiningDate": "23-Jul-90",
+    "City": "Jamnagar"
+  },
+  {
+    "EID": 106,
+    "EName": "Priya",
+    "Department": "IT",
+    "Salary": 9000,
+    "JoiningDate": "18-Oct-90",
+    "City": "Ahmedabad"
+  },
+  {
+    "EID": 107,
+    "EName": "Neha",
+    "Department": "HR",
+    "Salary": 34000,
+    "JoiningDate": "25-Dec-91",
+    "City": "Rajkot"
+  }
+]
+
 -----------
 PART : A  |
 -----------
