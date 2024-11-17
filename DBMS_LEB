@@ -207,7 +207,16 @@ PART : B
 8.=> db.STUDENT.find({DEPARTMENT:"Mechanical"}, {ROLLNO:1})
 9.=> db.STUDENT.find( {CITY: 'Baroda'}).limit(2)
 10.=> db.STUDENT.find({GENDER: 'Male' ,  SEM: 3})
-11 thi baki che 
+11.=> db.STUDENT.find({ ROLLNO:{$lt:105} } , {SNAME:1 ,CITY:1, FEES:1 }) 
+12.=> db.STUDENT.find({SNAME:/^k/i})
+13.=> db.STUDENT.find({SNAME:/^[dz]/i})
+14.=> db.STUDENT.find({SNAME:/^[a-r]/i})
+15.=> db.STUDENT.find({SNAME:/^p.*i$/i})
+16.=> db.STUDENT.find({DEPARTMENT:/^c/i})
+17.=> db.STUDENT.find({CITY:/med/i} , {SNAME:1 ,SEM:1, FEES:1 , DEPARTMENT:1  , CITY:1})
+18.=> db.STUDENT.find({CITY:{$nin:['Rajkot' ,'Baroda' ]}} , {SNAME:1 ,SEM:1, FEES:1 , DEPARTMENT:1 , CITY:1})
+19.=> db.STUDENT.deleteMany({ CITY: 'Jamnagar' })
+20.=> db.STUDENT.updateOne({SNAME: 'Krish'} , {$set:{SNAME: 'fenny', GENDER: 'Female' }} )
 _____________________________________________________________________________________________________________________________________________
 LEB 18 
 db.BRANCH.insertMany([
