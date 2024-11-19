@@ -1,0 +1,10 @@
+pop-up box in js 
+
+	-> alert 
+	-> combination 
+	-> prompt 
+
+ data type 
+	-> var 
+	-> let 
+	-> const 
