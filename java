@@ -64,6 +64,103 @@ public class user {
   }
 }
 ------------------------------------------------------------------------------------------
+ // palindrome
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // Input a number from the user
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        // Check if the number is a palindrome
+        if (palin(number)) {
+            System.out.println(number + " is a palindrome.");
+        } else {
+            System.out.println(number + " is not a palindrome.");
+        }
+    }
+    // Method to check if a number is a palindrome
+    public static boolean palin(int num) {
+        int original = num;
+        int reverse = 0;
+
+        while (num > 0) {
+            reverse = reverse * 10 + num % 10;
+            num /= 10;
+        }
+        return original == reverse;
+    }
+}
+------------------------------------------------------------------------------------------
+ [C] Implement a Java Program to find largest element in a user defined 1D array. 
+
+import java.util.Scanner;
+
+public class LargestElement {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the size of the array
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        // Declare the array and input its elements
+        int[] array = new int[size];
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+            array[i] = scanner.nextInt();
+        }
+
+        // Find the largest element
+        int largest = array[0];
+        for (int i = 1; i < size; i++) {
+            if (array[i] > largest) {
+                largest = array[i];
+            }
+        }
+
+        // Display the largest element
+        System.out.println("The largest element in the array is: " + largest);
+    }
+}
+________________________________________________________________________________________________________________________________________________________
+[ C.2 ]Implement a Java program to accept a line and print how many consonants and vowels are there in line.
+
+import java.util.Scanner;
+
+public class VowelConsonantCounter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input a line of text
+        System.out.print("Enter a line of text: ");
+        String line = scanner.nextLine();
+
+        // Initialize counters for vowels and consonants
+        int vowels = 0, consonants = 0;
+
+        // Convert line to lowercase for simplicity
+        line = line.toLowerCase();
+
+        // Loop through each character in the line
+        for (char ch : line.toCharArray()) {
+            if (ch >= 'a' && ch <= 'z') { // Check if character is a letter
+                if ("aeiou".indexOf(ch) != -1) {
+                    vowels++; // Increment vowels count
+                } else {
+                    consonants++; // Increment consonants count
+                }
+            }
+        }
+
+        // Display the counts
+        System.out.println("Number of vowels: " + vowels);
+        System.out.println("Number of consonants: " + consonants);
+    }
+}
+
+------------------------------------------------------------------------------------------
  //date 20-8-2024
 // leb A part program 4
 
