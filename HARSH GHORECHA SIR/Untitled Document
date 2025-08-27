@@ -1,0 +1,99 @@
+# Q12: Sum of the first element of each tuple in a list
+def sum_first_elements(tuples_list):
+    return sum(t[0] for t in tuples_list)
+
+# Q13: Get student name based on roll number
+def get_student_name(rollno, students_dict):
+    return students_dict.get(rollno, "Not Found")
+
+# Q14: Sum of scores ending with 0
+def sum_scores_ending_with_zero(scores):
+    return sum(score for score in scores if str(score).endswith('0'))
+
+# Q15: Invert a dictionary (keys to values and values to keys)
+def invert_dict(d):
+    return {v: k for k, v in d.items()}
+
+# Q16: Count uppercase and lowercase letters in a string
+def count_case(s):
+    no_upper = sum(1 for c in s if c.isupper())
+    no_lower = sum(1 for c in s if c.islower())
+    return no_upper, no_lower
+
+# Q17: Lambda to get smallest number
+smallest = lambda a, b: a if a < b else b
+
+# Q18: Filter names with more than 7 characters
+def names_more_than_7(names):
+    return list(filter(lambda name: len(name) > 7, names))
+
+# Q19: Capitalize the first letter of all names using map
+def capitalize_names(names):
+    return list(map(lambda name: name.capitalize(), names))
+
+# Q20.1: Positional arguments
+def greet_positional(name, age):
+    print(f"Hello {name}, you are {age} years old.")
+
+# Q20.2: Keyword arguments
+def greet_keyword(name=None, age=None):
+    print(f"Hello {name}, you are {age} years old.")
+
+# Q20.3: Default arguments
+def greet_default(name="Guest", age=18):
+    print(f"Hello {name}, you are {age} years old.")
+
+# Q20.4: Variable length positional (*args) & keyword (**kwargs)
+def greet_var_length(*args, **kwargs):
+    print("Positional:", args)
+    print("Keyword:", kwargs)
+
+# Q20.5: Positional-only and keyword-only arguments (Python 3.8+)
+def greet_advanced(name, /, age, *, city):
+    print(f"Hello {name}, you are {age} years old from {city}.")
+
+# ------------------ Example Calls ------------------
+
+# Q12
+print(sum_first_elements([(1, 2), (3, 4), (5, 6)]))  # Output: 9
+
+# Q13
+dict1 = {101: 'Ajay', 102: 'Rahul', 103: 'Jay', 104: 'Pooja'}
+print(get_student_name(103, dict1))  # Output: Jay
+
+# Q14
+scores = [200, 456, 300, 100, 234, 678]
+print(sum_scores_ending_with_zero(scores))  # Output: 600
+
+# Q15
+d = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+print(invert_dict(d))  # Output: {10: 'a', 20: 'b', 30: 'c', 40: 'd'}
+
+# Q16
+print(count_case("AbcDEfgh"))  # Output: (3, 5)
+
+# Q17
+print(smallest(10, 20))  # Output: 10
+
+# Q18
+names_list = ['Alexander', 'Bob', 'Catherine', 'Daniel', 'Christina']
+print(names_more_than_7(names_list))  # Output: ['Alexander', 'Catherine', 'Christina']
+
+# Q19
+print(capitalize_names(['ajay', 'rahul', 'pooja']))  # Output: ['Ajay', 'Rahul', 'Pooja']
+
+# Q20.1
+greet_positional("Ravi", 25)
+
+# Q20.2
+greet_keyword(age=22, name="Sneha")
+
+# Q20.3
+greet_default()  # uses default values
+
+# Q20.4
+greet_var_length("Ravi", 25, city="Delhi", country="India")
+
+# Q20.5
+greet_advanced("Ravi", age=30, city="Mumbai")
+
